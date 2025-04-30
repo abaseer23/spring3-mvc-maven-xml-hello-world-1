@@ -41,8 +41,8 @@ pipeline {
                     def artifactExists = fileExists(artifactPath)
 
                     if (artifactExists) {
-                        echo "*** Uploading: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version: ${BUILD_NUMBER}"
-
+                        echo "*** File: ${artifactPath}, group: ${pom.groupId}, packaging: ${pom.packaging}, version: ${BUILD_NUMBER}"
+                        
                         nexusArtifactUploader(
                             nexusVersion: "${NEXUS_VERSION}",
                             protocol: "${NEXUS_PROTOCOL}",
@@ -75,7 +75,3 @@ pipeline {
     }
 }
 
-            }
-        }
-    }
-}
